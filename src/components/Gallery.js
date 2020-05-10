@@ -1,7 +1,12 @@
 import React from "react";
 import SearchBox from "./SearchBox";
+import GifPreview from "./GifPreview";
 
 class Gallery extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   fetchGif = (search) => {
     if (search.trim().length > 0) {
       fetch(
@@ -9,7 +14,16 @@ class Gallery extends React.Component {
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          const gifs = data.data.map((gifInfo) => {
+            return {
+              gifUrl: gifInfo.images.preview_gif.url,
+              focusUrl: gifInfo.images.original.url,
+              fixed_height: gifInfo.images.fixed_height_still.url,
+              title: gifInfo.title,
+              key: gifInfo.id,
+            };
+          });
+          this.setState({ gifs });
         });
     }
   };
@@ -18,14 +32,33 @@ class Gallery extends React.Component {
     this.setState({ imageUrl: url });
   };
 
-  render() {
+  displayGifs = () => {
+    const { gifs } = this.state;
+    const gifContainer = [];
 
+    gifs.forEach((gif) => {
+      gifContainer.push(
+        <GifPreview
+          handleClick={this.handleClick}
+          url={gif.gifUrl}
+          focusUrl={gif.focusUrl}
+          key={gif.key}
+        />
+      );
+    });
+
+    return <div className="gif-container">{gifContainer}</div>;
+  };
+
+  render() {
+    const { gifs } = this.state;
     return (
       <div className="parent-container">
         <div className="header">
           <h2 className="title">Gif Search</h2>
         </div>
         <SearchBox fetchGif={this.fetchGif} />
+        {gifs ? this.displayGifs() : null}
       </div>
     );
   }
