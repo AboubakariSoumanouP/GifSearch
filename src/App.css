@@ -73,3 +73,7 @@
   width: 50%;
   margin: auto;
 }
+
+.about-container p {
+  font-size: 1.5rem;
+}
