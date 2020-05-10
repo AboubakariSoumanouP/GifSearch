@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBox from "./SearchBox";
 import GifPreview from "./GifPreview";
+import GifFullView from './GifFullView';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -51,7 +52,11 @@ class Gallery extends React.Component {
   };
 
   render() {
-    const { gifs } = this.state;
+    const { gifs, imageUrl } = this.state;
+    if (imageUrl) {
+      return <GifFullView handleClick={this.handleClick} url={imageUrl} />;
+    }
+
     return (
       <div className="parent-container">
         <div className="header">
