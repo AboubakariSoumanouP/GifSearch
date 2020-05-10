@@ -67,3 +67,13 @@
   position: fixed;
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+.about-container{
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.about-container p {
+  font-size: 1.5rem;
+}

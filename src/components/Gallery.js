@@ -59,9 +59,6 @@ class Gallery extends React.Component {
 
     return (
       <div className="parent-container">
-        <div className="header">
-          <h2 className="title">Gif Search</h2>
-        </div>
         <SearchBox fetchGif={this.fetchGif} />
         {gifs ? this.displayGifs() : null}
       </div>
