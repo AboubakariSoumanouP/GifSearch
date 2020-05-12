@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBox from "./SearchBox";
 import GifPreview from "./GifPreview";
-import GifFullView from './GifFullView';
+import GifFullView from "./GifFullView";
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -30,6 +30,9 @@ class Gallery extends React.Component {
   };
 
   handleClick = (url) => {
+    url.length
+      ? (document.querySelector(".navbar").style.display = "none")
+      : (document.querySelector(".navbar").style.display = "flex");
     this.setState({ imageUrl: url });
   };
 

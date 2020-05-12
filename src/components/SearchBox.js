@@ -25,6 +25,7 @@ class SearchBox extends React.Component {
           value={search}
           onChange={this.handleChange}
           onKeyPress={this.handleKeyPress}
+          placeholder="keyword"
         />
         <button
           id="gif-search-submit"
