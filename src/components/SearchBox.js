@@ -12,7 +12,7 @@ class SearchBox extends React.Component {
   };
 
   handleKeyPress = (e) => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       this.props.fetchGif(this.state.search);
     }
   };
