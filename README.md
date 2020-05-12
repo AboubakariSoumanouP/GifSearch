@@ -8,7 +8,7 @@ Project board: https://docs.google.com/document/d/1SyD0l04XEPoqsG-fO9IXUDVITUCAc
 
 # Project Preview
 
-## Home/gallery
+## Home/Gallery
 
 <img src="/public/home-gallery.png" width="500" />
 
